@@ -5,6 +5,13 @@ services:
     #image: nodejs:alpine
     container_name: echo-speaks-server
     build: ./Dockerfile
-    
-
-    
+    ports:
+      - "8091:8091
+    labels:
+      - traefik.enabled=true
+      - traefik.routers.echo-speaks-http.entryPoints=https
+      - traefik.routers.echo-speaks-http.tls=true
+      - traefik.routers.echo-speaks-http.rule=Host(`echo-speaks.sjdev.net`)
+      
+      - traefik.services.echo-speaks-http.loadbalancer.port=8091
+      
