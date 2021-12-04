@@ -2,6 +2,9 @@ version: "3.6"
 
 services:
   echo-speaks-server:
-    image: nodejs:alpine
+    #image: nodejs:alpine
     container_name: echo-speaks-server
+    build: ./Dockerfile
+    
+
     
